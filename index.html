@@ -13,9 +13,9 @@
     <header>
         <h1>Formulaire d'inscription</h1>
     </header>
-    <form>
+    <form name="form" onsubmit="return checked()">
         <label for="first-name">First name</label><br>
-        <input type="text" id="first-name"><br>
+        <input type="text" id="first-name">
         <p class="erore" id="f-name">please enter your first-name</p>
         <label for="last-name">Last name</label><br>
         <input type="text" id="last-name"><br>
@@ -92,5 +92,6 @@
         <p class="erore" id="club">please select the Club(s) you want to join</p><br>
         <input type="submit" value="Send" id="send">
     </form>
+    <script src="script.js"></script>
 </body>
 </html>

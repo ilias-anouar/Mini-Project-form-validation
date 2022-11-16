@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Clubs Parascolaires Solicode</title>
 </head>
 <body>
@@ -15,16 +16,16 @@
     <form>
         <label for="first-name">First name</label><br>
         <input type="text" id="first-name"><br>
-        <p class="erore">please enter your first-name</p>
+        <p class="erore" id="f-name">please enter your first-name</p>
         <label for="last-name">Last name</label><br>
         <input type="text" id="last-name"><br>
-        <p class="erore">please enter your last-name</p>
+        <p class="erore" id="l-name">please enter your last-name</p>
         <label for="email">Email</label><br>
         <input type="text"  id="email"><br>
-        <p class="erore">please enter your Email</p>
+        <p class="erore" id="e-mail">please enter your Email</p>
         <label for="phone">Phone Number</label><br>
         <input type="text" id="phone"><br>
-        <p class="erore">please enter your Phone Number</p>
+        <p class="erore" id="number">please enter your Phone Number</p>
         <fieldset>
             <legend>Gender</legend>
             <div>
@@ -36,12 +37,11 @@
                 <label for="female">Female</label>
             </div>
         </fieldset><br>
-        <p class="erore">please select your Gender</p>
+        <p class="erore" id="gender">please select your Gender</p>
         <fieldset>
             <legend>Group</legend>
             <div>
-              <input type="radio" id="DW101" name="Group" value="DW101"
-                     checked>
+              <input type="radio" id="DW101" name="Group" value="DW101">
               <label for="DW101">DW101</label>
             </div>
             <div>
@@ -61,7 +61,7 @@
                 <label for="DM102">DM102</label>
             </div>
         </fieldset><br>
-        <p class="erore">please select your Group</p>
+        <p class="erore" id="group">please select your Group</p>
         <fieldset>
             <legend>Club(s)</legend>
             <div>
@@ -89,7 +89,7 @@
                 <label for="Theatre">Theatre</label>
             </div>
         </fieldset>
-        <p class="erore">please select the Club(s) you want to join</p>
+        <p class="erore" id="club">please select the Club(s) you want to join</p>
         <input type="submit" value="Send" id="send">
     </form>
 </body>

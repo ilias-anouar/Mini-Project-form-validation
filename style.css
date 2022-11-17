@@ -5,7 +5,11 @@
     transition: 0.3s;
 }
 body{
-    margin: 1em 3em;
+    margin:0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "section form";
 }
 /* ==========erore message========= */
 .erore{
@@ -13,11 +17,40 @@ body{
     font-size: small;
     background-color: red;
     padding: 1em 2em;
-    width: 30%;
+    width: 50%;
     color: #ffff;
     display: none;
 }
+/* ======== section ======== */
+section{
+    background-image: url(image/solicode.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: section;
+}
+section h1{
+    grid-area: title;
+}
+section img{
+    width: 70%;
+    margin-left: 1em;
+    grid-area: logo;
+}
+section div{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "logo title title";
+}
+section p{
+    width: 100%;
+    text-align: center;
+}
 /* =======form======== */
+form{
+    padding: 1em;
+    grid-area: form;
+}
 input[type=text] {
     width: 100%;
     padding: 10px 0;

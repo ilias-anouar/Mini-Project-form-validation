@@ -7,18 +7,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="valide.js" defer></script>
     <title>Clubs Parascolaires Solicode</title>
 </head>
 <body>
     <section>
-        <div>
             <img src="image/logo-solicode.svg" alt="logo">
             <h1>Clubs Parascolaires</h1>
-        </div>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugiat ipsa autem praesentium facilis quia maiores nostrum dolore ex molestiae aliquid, delectus, consequatur nam! Ratione deserunt molestiae voluptas aperiam quaerat.</p>
     </section>
-    <form name="form" onsubmit="return checked()">
-        <h2>Formulaire d'inscription</h2>
+    <form id="form">
+        <h2 id="title">Formulaire d'inscription</h2>
         <label for="first-name">First name</label><br>
         <input type="text" id="first-name">
         <p class="erore" id="f-name">please enter your first-name</p>
@@ -97,6 +96,5 @@
         <p class="erore" id="club">please select the Club(s) you want to join</p><br>
         <input type="submit" value="Send" id="send">
     </form>
-    <script src="script.js"></script>
 </body>
 </html>

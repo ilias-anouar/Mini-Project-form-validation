@@ -43,33 +43,41 @@ section p{
 }
 /* =======form======== */
 form{
-    background-image: linear-gradient( lightblue, rgb(0, 255, 255), rgb(77, 255, 255),aqua , rgb(86, 86, 255));
+    background-color: black;
     padding: 1em;
     grid-area: form;
+}
+form h2{
+    color: green;
+}
+fieldset{
+    color: green;
+}
+label{
+    color: green;
 }
 input[type=text] {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: rgb(0, 0, 0);
+    color: green;
     margin-bottom: 10px;
     border: none;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid green;
     outline: none;
     background: transparent;
 }
 form input[type=submit]{
     padding: 10px 20px;
-    color: #000000;
+    color: green;
     letter-spacing: 4px;
-    color: black;
     font-weight: 600;
-    border: solid black 1px;
+    border: solid green 1px;
 }
 form input[type=submit]:hover{
     color: #000000ca;
-    background-color: rgb(0, 255, 174);
+    background-color: green;
     border-radius: 5px;
-    border-color: rgb(0, 255, 174);
+    border-color: green;
     cursor: pointer;
 }

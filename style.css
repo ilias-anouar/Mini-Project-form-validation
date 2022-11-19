@@ -43,6 +43,7 @@ section p{
 }
 /* =======form======== */
 form{
+    background-image: linear-gradient( lightblue, rgb(0, 255, 255), rgb(77, 255, 255),aqua , rgb(86, 86, 255));
     padding: 1em;
     grid-area: form;
 }

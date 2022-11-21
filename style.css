@@ -12,14 +12,15 @@ body{
     grid-template-areas: "section form";
 }
 /* ==========erore message========= */
+#should{
+    color: red;
+}
 .erore{
-    text-align: center;
     font-size: small;
-    background-color: red;
     padding: 1em 2em;
     width: 50%;
-    color: #ffff;
     display: none;
+    color: red;
 }
 /* ======== section ======== */
 section{
@@ -72,4 +73,14 @@ form input[type=submit]:hover{
     border-radius: 5px;
     border-color: rgb(0, 255, 174);
     cursor: pointer;
+}
+/* =====media======= */
+@media only screen and (max-width: 768px) {
+    body{
+        margin:0;
+        display: grid;
+        grid-template-columns:auto;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "section" "form";
+    }
 }

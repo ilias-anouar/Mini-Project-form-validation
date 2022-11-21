@@ -4,6 +4,15 @@ document.getElementById('form').onsubmit = function () {
     let lname = document.getElementById('last-name').value;
     let email = document.getElementById('email').value;
     let number = document.getElementById('phone').value;
+    // radio type
+    let genders = document.getElementsByName('Gender')
+    let groups = document.getElementsByName('Group')
+    // checkbox type
+    let allclub = document.getElementById('"allclub').getElementsByTagName('input')
+    let limit = 3
+    // check variabls
+    let groupschecked = ((groups[0].checked == true)||(groups[1].checked == true)||(groups[2].checked == true)||(groups[3].checked == true)||(groups[4].checked == true));
+    let groupsnochecked = ((groups[0].checked == false)||(groups[1].checked == false)||(groups[2].checked == false)||(groups[3].checked == false)||(groups[4].checked == false));
     // regEx
     let valideEmail = /(\w+)?\.?(\w+)?\.?(\w+)?\d?\@(gmail|hotmail|yahoo|ofppt)\.(com|org|net|ma)/ig;
     let valideNumber = /(06|07|05)\d{8}/g;
@@ -19,8 +28,22 @@ document.getElementById('form').onsubmit = function () {
     console.log(validmail);
     console.log(validePhon);
     let e = true
+    // checkbox
+    for (let i = 0; i < allclub.length; i++) {
+        allclub[i].onclick = function() {
+			let checkedcount = 0;
+				for (let i = 0; i < allclub.length; i++) {
+				checkedcount += (allclub[i].checked) ? 1 : 0;
+			}
+			if (checkedcount > limit) {
+				document.getElementById('club').innerHTML = ("You can select maximum of " + limit + " checkbox.");
+				this.checked = false;
+			}
+		}
+    }
     // condition
     if (e = true) {
+        // input value
         if ((valideN === false) || (fname === "")) {
             document.getElementById('f-name').style.display = "block"
         } else if (valideN === true) {
@@ -41,11 +64,28 @@ document.getElementById('form').onsubmit = function () {
         } else if (validePhon === true) {
             document.getElementById('number').style.display = "none"
         }
+        // gender radio
+        if ((genders[0].checked == false)||(genders[1].checked == false)) {
+            document.getElementById('gender').style.display = "block"
+        } else if ((genders[0].checked == true)||(genders[1].checked == false)){
+            document.getElementById('gender').style.display = "none"
+        }
+        // group radio
+        if (groupschecked) {
+            document.getElementById('group').style.display = "none"
+        }else if (groupsnochecked) {
+            document.getElementById('group').style.display = "block"
+        }
+        // checkbox
+        if (allclub.checked == true) {
+            document.getElementById('club').style.display = "none"
+        }else{
+            document.getElementById('club').style.display = "block"
+        }
         return false
     } else {
         return true
     }
-    // checkBox
 }
 
 

@@ -1,3 +1,16 @@
+function checkbox(elem) {
+    let x = 0
+    for (let i = 0; i < elem.length; i++) {
+        if (elem[i].checked == true) {
+            x++
+        }
+        }
+        if (x>=1 && x<=3) {
+            return true
+        }else{
+            return false
+        }
+}
 document.getElementById('form').onsubmit = function () {
     // input value
     let fname = document.getElementById('first-name').value;
@@ -9,9 +22,7 @@ document.getElementById('form').onsubmit = function () {
     let groups = document.getElementsByName('Group')
     // checkbox type
     let allclub = document.getElementById('allclub').getElementsByTagName('input')
-    let limit = 3
     // check variabls
-
     let groupschecked = ((groups[0].checked == true)||(groups[1].checked == true)||(groups[2].checked == true)||(groups[3].checked == true)||(groups[4].checked == true));
     let groupsnochecked = ((groups[0].checked == false)&&(groups[1].checked == false)&&(groups[2].checked == false)&&(groups[3].checked == false)&&(groups[4].checked == false));
     // regEx
@@ -29,19 +40,6 @@ document.getElementById('form').onsubmit = function () {
     console.log(validmail);
     console.log(validePhon);
     let e = true
-    // checkbox
-    for (let i = 0; i < allclub.length; i++) {
-        allclub[i].onclick = function() {
-			let checkedcount = 0;
-				for (let i = 0; i < allclub.length; i++) {
-				checkedcount += (allclub[i].checked) ? 1 : 0;
-			}
-			if (checkedcount > limit) {
-				document.getElementById('club').innerHTML = ("You can select maximum of " + limit + " checkbox.");
-				this.checked = false;
-			}
-		}
-    }
     // condition
     if (e = true) {
         // input value
@@ -50,24 +48,28 @@ document.getElementById('form').onsubmit = function () {
             document.getElementById('first-name').style.borderColor = "red"
         } else if (valideN === true) {
             document.getElementById('f-name').style.display = "none"
+            document.getElementById('first-name').style.borderColor = "green"
         }
         if ((valideLn === false) || (lname === "")) {
             document.getElementById('l-name').style.display = "block"
             document.getElementById('last-name').style.borderColor = "red"
         } else if (valideLn === true) {
             document.getElementById('l-name').style.display = "none"
+            document.getElementById('last-name').style.borderColor = "green"
         }
         if ((validmail === false) || (email === "")) {
             document.getElementById('e-mail').style.display = "block"
             document.getElementById('email').style.borderColor = "red"
         } else if (validmail === true) {
             document.getElementById('e-mail').style.display = "none"
+            document.getElementById('email').style.borderColor = "green"
         }
         if ((validePhon === false) || (number === "")) {
             document.getElementById('number').style.display = "block"
             document.getElementById('phone').style.borderColor = "red"
         } else if (validePhon === true) {
             document.getElementById('number').style.display = "none"
+            document.getElementById('phone').style.borderColor = "green"
         }
         // gender radio
         if ((genders[0].checked == false)&&(genders[1].checked == false)) {
@@ -86,8 +88,9 @@ document.getElementById('form').onsubmit = function () {
             document.getElementById('allgroup').style.color = 'green'
         }
         // checkbox
-        if (allclub.checked == true) {
+        if (checkbox(allclub)) {
             document.getElementById('club').style.display = "none"
+            document.getElementById('allclub').style.color = 'green'
         }else{
             document.getElementById('club').style.display = "block"
             document.getElementById('allclub').style.color = 'red'
@@ -97,5 +100,3 @@ document.getElementById('form').onsubmit = function () {
         return document.getElementsByTagName('body').innerHTML = `<p>congratulation</p>`
     }
 }
-
-

@@ -11,7 +11,7 @@ function checkbox(elem) {
             return false
         }
 }
-document.getElementById('form').onsubmit = function () {
+function valide() {
     // input value
     let fname = document.getElementById('first-name').value;
     let lname = document.getElementById('last-name').value;
@@ -100,3 +100,4 @@ document.getElementById('form').onsubmit = function () {
         return document.getElementsByTagName('body').innerHTML = `<p>congratulation</p>`
     }
 }
+document.getElementById('form').onsubmit 

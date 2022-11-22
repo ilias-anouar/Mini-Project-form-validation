@@ -35,11 +35,14 @@ function valide() {
     let valideLn = valideLN.test(lname);
     let validmail = valideEmail.test(email);
     let validePhon = valideNumber.test(number);
-    console.log(valideN);
-    console.log(valideLn);
-    console.log(validmail);
-    console.log(validePhon);
-    let e = true
+    // variables 
+    let vname = false
+    let vlname = false
+    let vemail = false
+    let vnumber = false
+    let vgender = false
+    let vgroup = false
+    let vclub = false
     // condition
     if (e = true) {
         // input value
@@ -49,6 +52,7 @@ function valide() {
         } else if (valideN === true) {
             document.getElementById('f-name').style.display = "none"
             document.getElementById('first-name').style.borderColor = "green"
+            vname = true
         }
         if ((valideLn === false) || (lname === "")) {
             document.getElementById('l-name').style.display = "block"
@@ -56,6 +60,7 @@ function valide() {
         } else if (valideLn === true) {
             document.getElementById('l-name').style.display = "none"
             document.getElementById('last-name').style.borderColor = "green"
+            vlname = true
         }
         if ((validmail === false) || (email === "")) {
             document.getElementById('e-mail').style.display = "block"
@@ -63,6 +68,7 @@ function valide() {
         } else if (validmail === true) {
             document.getElementById('e-mail').style.display = "none"
             document.getElementById('email').style.borderColor = "green"
+            vemail = true
         }
         if ((validePhon === false) || (number === "")) {
             document.getElementById('number').style.display = "block"
@@ -70,6 +76,7 @@ function valide() {
         } else if (validePhon === true) {
             document.getElementById('number').style.display = "none"
             document.getElementById('phone').style.borderColor = "green"
+            vnumber = true
         }
         // gender radio
         if ((genders[0].checked == false)&&(genders[1].checked == false)) {
@@ -78,6 +85,7 @@ function valide() {
         } else if ((genders[0].checked == true)||(genders[1].checked == false)){
             document.getElementById('gender').style.display = "none"
             document.getElementById('allgender').style.color = 'green'
+            vgender = true
         }
         // // group radio
         if (groupsnochecked) {
@@ -86,18 +94,25 @@ function valide() {
         }else if (groupschecked) {
             document.getElementById('group').style.display = "none"
             document.getElementById('allgroup').style.color = 'green'
+            vgroup = true
         }
         // checkbox
         if (checkbox(allclub)) {
             document.getElementById('club').style.display = "none"
             document.getElementById('allclub').style.color = 'green'
+            vclub = true
         }else{
             document.getElementById('club').style.display = "block"
             document.getElementById('allclub').style.color = 'red'
         }
-        return false
-    } else {
-        return document.getElementsByTagName('body').innerHTML = `<p>congratulation</p>`
+        return vname,vlname,vnumber,vemail,vgender,vgroup,vclub
     }
 }
-document.getElementById('form').onsubmit 
+document.getElementById('form').onsubmit = function() {
+    valide()
+    if (vname || vlname || vnumber || vemail || vgender || vgroup || vclub) {
+        return false
+    }else if(vname == true && vlname == true && vnumber == true && vemail == true && vgender == true && vgroup == true && vclub == true){
+        return true 
+    }
+}

@@ -97,6 +97,6 @@ document.getElementById('form').onsubmit = function () {
         }
         return false
     } else {
-        return result =  document.getElementsByTagName('body').innerHTML = `<p>congratulation</p>`
+        return true
     }
 }

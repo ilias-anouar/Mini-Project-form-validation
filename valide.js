@@ -11,16 +11,26 @@ function checkbox(elem) {
             return false
         }
 }
-// function checkP(p) {
-//     p
-// }
-document.getElementById('form').onsubmit = function () {
+function checkP() {
+    let p = document.querySelectorAll("#form p")
+    let table = []
+    let result = true
+    p.forEach(e => {
+        table.push(e)
+    });
+    for (let i = 0; i < table.length; i++) {
+        if (table[i].classList.contains("erore")) {
+            return result = false
+        }  
+    }
+    return result
+}
+function valide() {
     // input value
     let fname = document.getElementById('first-name').value;
     let lname = document.getElementById('last-name').value;
     let email = document.getElementById('email').value;
     let number = document.getElementById('phone').value;
-    let p = document.querySelectorAll("#form p")
     // radio type
     let genders = document.getElementsByName('Gender')
     let groups = document.getElementsByName('Group')
@@ -39,10 +49,6 @@ document.getElementById('form').onsubmit = function () {
     let valideLn = valideLN.test(lname);
     let validmail = valideEmail.test(email);
     let validePhon = valideNumber.test(number);
-    console.log(valideN);
-    console.log(valideLn);
-    console.log(validmail);
-    console.log(validePhon);
     let e = true
     // condition
     if (e = true) {
@@ -51,28 +57,28 @@ document.getElementById('form').onsubmit = function () {
             document.getElementById('f-name').classList.add("erore")
             document.getElementById('first-name').style.borderColor = "red"
         } else if (valideN === true) {
-            document.getElementById('f-name').style.display = "none"
+            document.getElementById('f-name').classList.remove("erore")
             document.getElementById('first-name').style.borderColor = "green"
         }
         if ((valideLn === false) || (lname === "")) {
             document.getElementById('l-name').classList.add("erore")
             document.getElementById('last-name').style.borderColor = "red"
         } else if (valideLn === true) {
-            document.getElementById('l-name').style.display = "none"
+            document.getElementById('l-name').classList.remove("erore")
             document.getElementById('last-name').style.borderColor = "green"
         }
         if ((validmail === false) || (email === "")) {
             document.getElementById('e-mail').classList.add("erore")
             document.getElementById('email').style.borderColor = "red"
         } else if (validmail === true) {
-            document.getElementById('e-mail').style.display = "none"
+            document.getElementById('e-mail').classList.remove("erore")
             document.getElementById('email').style.borderColor = "green"
         }
         if ((validePhon === false) || (number === "")) {
             document.getElementById('number').classList.add("erore")
             document.getElementById('phone').style.borderColor = "red"
         } else if (validePhon === true) {
-            document.getElementById('number').style.display = "none"
+            document.getElementById('number').classList.remove("erore")
             document.getElementById('phone').style.borderColor = "green"
         }
         // gender radio
@@ -80,7 +86,7 @@ document.getElementById('form').onsubmit = function () {
             document.getElementById('gender').classList.add("erore")
             document.getElementById('allgender').style.color = 'red'
         } else if ((genders[0].checked == true)||(genders[1].checked == false)){
-            document.getElementById('gender').style.display = "none"
+            document.getElementById('gender').classList.remove("erore")
             document.getElementById('allgender').style.color = 'green'
         }
         // // group radio
@@ -88,19 +94,24 @@ document.getElementById('form').onsubmit = function () {
             document.getElementById('group').classList.add("erore")
             document.getElementById('allgroup').style.color = 'red'
         }else if (groupschecked) {
-            document.getElementById('group').style.display = "none"
+            document.getElementById('group').classList.remove("erore")
             document.getElementById('allgroup').style.color = 'green'
         }
         // checkbox
         if (checkbox(allclub)) {
-            document.getElementById('club').style.display = "none"
+            document.getElementById('club').classList.remove("erore")
             document.getElementById('allclub').style.color = 'green'
         }else{
             document.getElementById('club').classList.add("erore")
             document.getElementById('allclub').style.color = 'red'
         }
         return false
-    } else {
-        return true
     }
+}
+document.getElementById('send').onclick = function(e){
+    valide();
+    checkP();
+    if (checkP() == true) {
+        document.getElementById('confirmation').href = 'confirmation.html'
+}
 }

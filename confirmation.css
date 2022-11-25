@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+body{
+    padding: 5em;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+div{
+    padding: 3em;
+    background-color: greenyellow;
+}

@@ -37,8 +37,7 @@ function valide() {
     // checkbox type
     let allclub = document.getElementById('allclub').getElementsByTagName('input')
     // check variabls
-    let groupschecked = ((groups[0].checked == true) || (groups[1].checked == true) || (groups[2].checked == true) || (groups[3].checked == true) || (groups[4].checked == true));
-    let groupsnochecked = ((groups[0].checked == false) && (groups[1].checked == false) && (groups[2].checked == false) && (groups[3].checked == false) && (groups[4].checked == false));
+    let groupsnochecked = !(groups[0].checked || groups[1].checked || groups[2].checked || groups[3].checked || groups[4].checked );
     // regEx
     let valideEmail = /(\w+)?\.?(\w+)?\.?(\w+)?\d?\@(gmail|hotmail|yahoo|ofppt)\.(com|org|net|ma)/ig;
     let valideNumber = /(06|07|05)\d{8}/g;
@@ -49,9 +48,9 @@ function valide() {
     let valideLn = valideLN.test(lname);
     let validmail = valideEmail.test(email);
     let validePhon = valideNumber.test(number);
-    let e = true
     // condition
-    if (e = true) {
+    let e = true
+    if (e) {
         // input value
         if ((valideN === false) || (fname === "")) {
             document.getElementById('f-name').classList.add("erore")
@@ -63,21 +62,21 @@ function valide() {
         if ((valideLn === false) || (lname === "")) {
             document.getElementById('l-name').classList.add("erore")
             document.getElementById('last-name').style.borderColor = "red"
-        } else if (valideLn === true) {
+        } else {
             document.getElementById('l-name').classList.remove("erore")
             document.getElementById('last-name').style.borderColor = "green"
         }
         if ((validmail === false) || (email === "")) {
             document.getElementById('e-mail').classList.add("erore")
             document.getElementById('email').style.borderColor = "red"
-        } else if (validmail === true) {
+        } else {
             document.getElementById('e-mail').classList.remove("erore")
             document.getElementById('email').style.borderColor = "green"
         }
-        if ((validePhon === false) || (number === "")) {
+        if (validePhon === false) {
             document.getElementById('number').classList.add("erore")
             document.getElementById('phone').style.borderColor = "red"
-        } else if (validePhon === true) {
+        } else {
             document.getElementById('number').classList.remove("erore")
             document.getElementById('phone').style.borderColor = "green"
         }
@@ -85,7 +84,7 @@ function valide() {
         if ((genders[0].checked == false) && (genders[1].checked == false)) {
             document.getElementById('gender').classList.add("erore")
             document.getElementById('allgender').style.color = 'red'
-        } else if ((genders[0].checked == true) || (genders[1].checked == false)) {
+        } else {
             document.getElementById('gender').classList.remove("erore")
             document.getElementById('allgender').style.color = 'green'
         }
@@ -93,7 +92,7 @@ function valide() {
         if (groupsnochecked) {
             document.getElementById('group').classList.add("erore")
             document.getElementById('allgroup').style.color = 'red'
-        } else if (groupschecked) {
+        } else {
             document.getElementById('group').classList.remove("erore")
             document.getElementById('allgroup').style.color = 'green'
         }

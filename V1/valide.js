@@ -56,7 +56,7 @@ function valide() {
         if ((valideN === false) || (fname === "")) {
             document.getElementById('f-name').classList.add("erore")
             document.getElementById('first-name').style.borderColor = "red"
-        } else if (valideN === true) {
+        } else {
             document.getElementById('f-name').classList.remove("erore")
             document.getElementById('first-name').style.borderColor = "green"
         }
